@@ -150,5 +150,5 @@ if not DEBUG:
     SECRET_KEY = os.environ['SECRET_KEY']
     import django_heroku  # 追加
     django_heroku.settings(locals())  # 追加
-    LINE_CHANNEL_ACCESS_TOKEN = os.environ['LINE_CHANNEL_ACCESS_TOKEN']
-    LINE_CHANNEL_SECRET = os.environ['LINE_CHANNEL_SECRET']
+    SLACK_API_TOKEN = os.environ['SLACK_API_TOKEN']
+    SLACK_CHANNEL_TOKEN = os.environ['SLACK_CHANNEL_TOKEN']
