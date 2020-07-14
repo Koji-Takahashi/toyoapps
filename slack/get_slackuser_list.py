@@ -10,8 +10,6 @@ from django.http import HttpResponse
 url = "https://slack.com/api/users.list"
 token = settings.SLACK_API_TOKEN
 channel_id = settings.SLACK_CHANNEL_TOKEN
-# token = "xoxp-847976834466-864385061718-1190486323670-4e330cad7028f9239fde01b40dcf7d74"
-# channel_id = "C014TTRGNN4"
 
 
 def create_user():
