@@ -1,0 +1,46 @@
+{% extends 'slack/base.html' %}
+{% block stylesheets %}
+  {{ block.super }}
+  <link href="/static/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+  <link href="/static/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+  <link href="/static/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+  <link href="/static/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+  <link href="/static/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+{% endblock stylesheets %}
+
+{% block content %}
+<div class="clearfix"></div>
+<div class="right_col" role="main">
+    <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <h1>部署詳細</h1>
+                    <hr>
+                    <form method="POST" class="post-form">
+                        {% csrf_token %}
+                        <div class="center">
+                            <table>
+                                <tr>
+                                    <th>部署名:<br></th>
+                                    <td>{{ form.name }}</td>
+                                </tr>
+                                <tr>
+                                </tr>
+                                <tr>
+                                    <th>支店:<br></th>
+                                    <td>{{ form.branch }}</td>
+                                </tr>
+                            </table>
+
+                        </div>
+                        <hr>
+                        <button type="submit" class="btn btn-primary">保存</button>
+                        <a href="{% url 'slack:department_list' %}" class="btn btn-success">戻る</a>
+                    </form>
+                  </div>
+              </div>
+        <div class="clearfix"></div>
+  </div>
+</div>
+{% endblock %}
