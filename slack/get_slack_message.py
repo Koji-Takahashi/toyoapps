@@ -28,9 +28,9 @@ def get_slack():
             m.user_code = i["user"]
             m.message = i["text"]
             m.encode_time = datetime.fromtimestamp(float(i["ts"]))
-        else:
+            m.save()
+        elif i.get("user"):
             m = Message(post_time=i["ts"], user_code=i["user"], message=i["text"], encode_time=datetime.fromtimestamp(float(i["ts"])))
-
-        m.save()
+            m.save()
 
     return 'OK'
