@@ -79,7 +79,8 @@ DATABASES = {
     'default': {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'name',
         'USER': 'user',
         'PASSWORD': '',
@@ -148,6 +149,7 @@ except ImportError:
 if not DEBUG:
     SECRET_KEY = os.environ['SECRET_KEY']
     import django_heroku  # 追加
-    django_heroku.settings(locals())  # 追加
+    # django_heroku.settings(locals())  # 追加
+    del DATABASES['default']['OPTIONS']['sslmode']
     SLACK_API_TOKEN = os.environ['SLACK_API_TOKEN']
     SLACK_CHANNEL_TOKEN = os.environ['SLACK_CHANNEL_TOKEN']
